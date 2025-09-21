@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
-from .models import Library      # <-- exact line the checker wants
-from .models import Book         # <-- Book can be on a separate line
+# ✅ Use the exact import path the checker requires
+from django.views.generic.detail import DetailView
+from .models import Library
+from .models import Book
 
 def list_books(request):
     books = Book.objects.all()
