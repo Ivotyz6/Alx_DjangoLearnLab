@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
-from relationship_app.models import Book, Library
+# ✅ Include BOTH models in a single line
+from .models import Book, Library
 
-# ✅ Function-based view
+# Function-based view
 def list_books(request):
-    # <-- Must explicitly call Book.objects.all()
     books = Book.objects.all()
     return render(request, "relationship_app/list_books.html", {"books": books})
 
-# ✅ Class-based view using DetailView
+# Class-based view
 class LibraryDetailView(DetailView):
     model = Library
     template_name = "relationship_app/library_detail.html"
